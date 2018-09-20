@@ -1,0 +1,83 @@
+body{
+			width:100%;
+      margin:auto;
+    }
+#headerImage{
+      width:100%;
+      height:100px;
+    }
+.menu{
+    background-color: #999;
+    overflow: hidden;
+    text-align: center;
+    height:55px;
+}
+.menu ul {
+    list-style-type: none;
+    padding-left:0;
+}
+.menu li{
+    display: inline;
+}
+.menu a {
+    color: #fff;
+    padding:14px 14px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Change the link color on hover */
+.menu a:hover {
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+}
+.searchBar{
+    text-align: center;
+    background-color: #999;
+    width:100%;
+}
+.searchBar form{
+    padding:14px 14px;
+    vertical-align: middle;
+    display: inline-block;
+}
+#searchButton, #signIn, #signUp{
+  padding: 5px 10px;
+  background: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+}
+#searchKey{
+  height:33px;
+  border:none;
+  padding:0;
+  vertical-align: middle;
+  text-align: center;
+}
+#category{
+  height:33px;
+  border:none;
+  vertical-align: middle;
+}
+#signIn, #signUp{
+  float:right;
+  margin: 14px 10px;
+}
+.itemView{
+	width:80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.itemView td{
+	width:25%;
+	text-align:center;
+}
+.itemView tr{
+	border:2px;
+}

@@ -1,0 +1,18 @@
+<h5 class="text-center text-primary"><small>SignUp with ABC store to create and manage your own store</small></h5>
+<div class="col-5 text-center tab-pane container active">
+  <form (ngSubmit)="addNewUser()">
+    <div class="form-group">
+    <input type="text" [(ngModel)]="newUsername" placeholder="Enter a username" name="username" class="form-control text-center">
+    <p *ngIf="usernameError" class='alert-danger'>Username already exist! Please try another username</p>
+    </div>
+    <div class="form-group">
+    <input type="password" [(ngModel)]="newPassword" placeholder="Enter a password" name="password" class="form-control text-center">
+    <p *ngIf="passwordError" class='alert-danger'>Password must be atleast 6 characters long!</p>
+    </div>
+    <div class="form-group">
+    <input type="password" [(ngModel)]="cPassword" placeholder="Enter password again" name="cPassword" class="form-control text-center">
+    <p *ngIf="passwordConfirmError" class='alert-danger'>Passwords do not match!</p>
+    </div>
+    <button type="submit" class="btn" [class.btn-primary]="mouseOvered" (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">Register</button>
+  </form>
+</div>

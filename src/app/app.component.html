@@ -1,0 +1,29 @@
+  <div class="nav bg-light sticky-top justify-content-center">
+    <ul class='nav nav-tabs'>
+      <li class='nav-item'><a class='nav-link' routerLink="/store" data-toggle="tab">Store</a></li>
+      <li class='nav-item'><a class='nav-link' routerLink="/mystore" data-toggle="tab" *ngIf="us.user['username']">MyStore</a></li>
+      <li class='nav-item'><a class='nav-link' routerLink="/cart" data-toggle="tab">Cart</a></li>
+      <li class='nav-item'><a class='nav-link' routerLink="/sign-in" data-toggle="tab" *ngIf="!us.user['username']">SignIn</a></li>
+      <li class='nav-item'><a class='nav-link' routerLink="/sign-up" data-toggle="tab">SignUp</a></li>
+    </ul>
+    <form class="form-inline">
+      <select class="form-control" [(ngModel)]="itemType" name="itemType">
+        <option value="all" id="all">All</option>
+        <option value="mensClothing">Mens Clothing</option>
+        <option value="womensClothing">Womens Clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="sports">Sports</option>
+        <option value="kids">Kids</option>
+      </select>
+      <input [(ngModel)]="searchText" (keydown)="searchItem()" class="form-control ml-1" type="text" placeholder="search for products" name="searchText"/>
+      <button (click)="searchItem(searchText,itemType)" class="btn ml-1" type=submit [class.btn-primary]="mouseOvered" (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">search</button>
+      <button *ngIf="us.user['username']" class="btn ml-2" type=submit [class.btn-primary]="mouse" (mouseout)="mouse=false" (mouseover)="mouse=true" (click)="logOut()">LogOut</button>
+      <a class="cartButton ml-2" routerLink="/cart">
+        <button data-toggle="tooltip" title="Checkout!" [class.btn-primary]="cartMouse" (mouseout)="cartMouse=false" (mouseover)="cartMouse=true" class="btn float-right">
+          Go to Cart
+        </button>
+      </a>
+  </form>
+  <h5 *ngIf="us.user['username']" class="text-center text-primary ml-4"><small>You are logged in as {{us.user.username}}</small></h5>
+</div>
+  <router-outlet class="tab-content"></router-outlet>

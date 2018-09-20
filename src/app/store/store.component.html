@@ -1,0 +1,11 @@
+<div class="text-center tab-pane container active mt-4">
+  <div class="card-columns">
+        <div class="card" *ngFor="let item of is.items | store:is.search:is.itemType">
+          <div class="card-title">Name: {{item.name}}</div>
+          <div class="card-text">Category: {{item.category}}</div>
+          <div class="card-text">Description: {{item.description}}</div>
+          <div class="card-text">Cost: {{item.cost  | currency: 'Nu.'}}</div>
+          <div class="card-footer"><button (click)="addToCart(item)" class="btn btn-success">AddToCart</button></div>
+        </div>
+  </div>
+</div>

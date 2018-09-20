@@ -1,0 +1,51 @@
+<div *ngIf="us.user.username" class='tab-pane container active'>
+  <div class="col-3 float-right">
+      <button type="submit" (click)="createItem = true" *ngIf="!createItem" class="btn btn-success">Add Item</button>
+  </div>
+<div class="col-8" *ngIf="!createItem">
+  <h5 class="text-left text-primary mb-4 mt-4"><small>Your item list</small></h5>
+  <table class="table table-hover small">
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Cost</th>
+      <th>Added/Last updated on</th>
+      <td></td>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of is.items">
+      <td>{{item.name}}</td>
+      <td>{{item.category}}</td>
+      <td>{{item.author}}</td>
+      <td>{{item.cost | currency: 'Nu.'}}</td>
+      <td>{{item.updateDate | date: 'dd/MM/yyyy HH:mm:ss a'}}</td>
+      <td><button (click)="editItem(item)" class="btn btn-secondary">Edit</button></td>
+      <td><button class="btn btn-danger" (click)="deleteItem(item)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+<div class="col-5 text-center" *ngIf="createItem">
+<form>
+    <div class="form-group">
+    <label>Item/Product name</label>
+    <input type="text" [(ngModel)]="newItemName" placeholder="Enter item/product name" name="newItemName" class="form-control">
+    </div>
+    <div class="form-group">
+    <label>Description/Specifications</label>
+    <input type="text" [(ngModel)]="newDescription" placeholder="Enter description" name="newDescription" class="form-control" rows="5">
+    </div>
+    <div class="form-group">
+    <label>Category</label>
+    <input type="text" [(ngModel)]="category" placeholder="select a category" name="category" class="form-control">
+    </div>
+    <div class="form-group">
+    <label>Cost</label>
+    <input type="number" [(ngModel)]="newItemCost" placeholder="Enter cost for item" name="newItemCost" class="form-control">
+    </div>
+    <button type="submit" (click)="addNewItem()" *ngIf="!editStatus" class="btn btn-success">Add Item</button>
+    <button type="submit" (click)="updateItem()" *ngIf="editStatus" class="btn btn-success">Update</button>
+    <button type="submit" (click)="createItem = false"  class="btn btn-danger ml-3">Cancel</button>
+  </form>
+</div>
+</div>
