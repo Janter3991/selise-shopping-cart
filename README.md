@@ -1,3 +1,19 @@
+## Project clone details
+
+angular-cli version 6.2.1
+
+1. Clone using
+$ git clone https://github.com/Janter3991/selise-shopping-cart.git
+
+2. Go to project root
+$ cd selise-shopping-cart/
+
+3. Install packages
+$ yarn install
+
+4. Firebase was used for database support
+link will be provided in the mail
+
 # ShoppingCart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
